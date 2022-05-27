@@ -51,7 +51,6 @@ let timerList = []
 
 let disableState = false;
 
-let isFirstPartShow = false;
 
 const continueSecondList = [
     1, 3
@@ -71,7 +70,7 @@ const OptionScene = React.forwardRef(({ nextFunc, transSignaler, _geo, continueS
     const [isShowLastPart, setShowLastPart] = useState(false)
 
     useEffect(() => {
-        
+
         setPositionFomart()
         disableState = false;
 
@@ -140,6 +139,8 @@ const OptionScene = React.forwardRef(({ nextFunc, transSignaler, _geo, continueS
         audioList.bodyAudio1.pause()
         audioList.bodyAudio2.pause()
 
+        audioList.buzzAudio.pause();
+
 
         timerList.map(timer => clearTimeout(timer))
 
@@ -171,7 +172,6 @@ const OptionScene = React.forwardRef(({ nextFunc, transSignaler, _geo, continueS
         transSignaler(SIGNALLIST.increaseMark)
 
         setTimeout(() => {
-
 
             if (stepCount < optionGroup.length - 1) {
 
@@ -275,12 +275,16 @@ const OptionScene = React.forwardRef(({ nextFunc, transSignaler, _geo, continueS
             clickRefList[num].current.style.top = '47%'
 
             correctNum++
+
+            audioList.tingAudio.currentTime = 0;
             audioList.tingAudio.play();
 
-            console.log(answerList)
 
             if (correctNum == answerList.length || stepCount > 3) {
-                goNextStep()
+                setTimeout(() => {
+                    goNextStep()
+                }, 1000);
+
             }
 
             else {
@@ -295,9 +299,8 @@ const OptionScene = React.forwardRef(({ nextFunc, transSignaler, _geo, continueS
                     audioList.bodyAudio2.play();
                     timerList[2] = setTimeout(() => {
                         startRepeatAudio()
-                        // audioList.commonAudio1.play();
                     }, audioList.bodyAudio2.duration * 1000 + 300);
-                }, 1500);
+                }, 2000);
             }
         }
         else {
