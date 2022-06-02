@@ -13,7 +13,7 @@ export default function Scene18({ nextFunc, _geo, _baseGeo }) {
     const replayBtn = useRef()
     useEffect(() => {
 
-        audioList.bodyAudio1.src = prePathUrl() + "sounds/main/excellent.mp3"
+        audioList.bodyAudio1.src = prePathUrl() + "sounds/effect/excellent.mp3"
         setRepeatAudio(audioList.replayAudio)
 
         timerList[0] = setTimeout(() => {
