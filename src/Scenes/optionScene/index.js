@@ -94,7 +94,6 @@ const OptionScene = React.forwardRef(({ nextFunc, transSignaler, _geo, continueS
             setRepeatAudio(audioList.commonAudio1)
 
 
-
             parentObject.current.className = 'appear'
             parentObject.current.style.pointerEvents = ''
             timerList[0] = setTimeout(() => {
@@ -314,7 +313,9 @@ const OptionScene = React.forwardRef(({ nextFunc, transSignaler, _geo, continueS
 
                     audioList.bodyAudio2.play();
                     timerList[2] = setTimeout(() => {
+                        
                         startRepeatAudio()
+
                     }, audioList.bodyAudio2.duration * 1000 + 300);
                 }, 2000);
             }
