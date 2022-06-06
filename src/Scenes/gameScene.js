@@ -45,7 +45,7 @@ const Scene = React.forwardRef(({ nextFunc, _baseGeo, _geo, loadFunc }, ref) => 
     useEffect(() => {
 
 
-
+        setRepeatType(1)
         return () => {
             stepCount = 0;
             totalStep = 0
