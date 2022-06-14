@@ -132,7 +132,7 @@ var gainNodeList = []
 var audioCtxlist = []
 var extraAudioList = []
 
-export function setExtraVolume(audio, value) {
+export function setExtraVolume(audio, value = 2) {
     if (!extraAudioList.includes(audio)) {
         extraAudioList.push(audio)
         audioCtxlist.push(new AudioContext())
