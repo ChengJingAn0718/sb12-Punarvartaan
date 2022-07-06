@@ -22,12 +22,12 @@ let wordGround = [6, 4]
 
 const posInfoList = [
 
-    { x: 1, y: 40 },
+    { x: 4, y: 40 },
     { x: 34, y: 40 },
-    { x: 68, y: 40, m: true },
-    { x: 1, y: 70 },
+    { x: 64, y: 40, m: true },
+    { x: 4, y: 70 },
     { x: 34, y: 70 },
-    { x: 68, y: 70, m: true },
+    { x: 64, y: 70, m: true },
 
     { x: 10, y: 40 },
     { x: 50, y: 40, m: true },
@@ -80,8 +80,6 @@ const Scene = React.forwardRef(({ nextFunc, _baseGeo, _geo }, ref) => {
         sceneStart: () => {
 
 
-
-
             timerList[0] = setTimeout(activeBtnFunc, 1500);
 
             setRepeatType(2)
@@ -95,6 +93,8 @@ const Scene = React.forwardRef(({ nextFunc, _baseGeo, _geo }, ref) => {
             clickedList = []
 
             setExtraVolume(audioList.commonAudio3, 6)
+            setRepeatAudio(audioList.commonAudio3)
+
 
             baseObject.current.className = 'aniObject'
         },
@@ -210,7 +210,7 @@ const Scene = React.forwardRef(({ nextFunc, _baseGeo, _geo }, ref) => {
         clickedList.push(index)
 
         setExtraVolume(audioList[index], 6)
-        
+
         setTimeout(() => {
             audioList[index].play();
         }, 50);
